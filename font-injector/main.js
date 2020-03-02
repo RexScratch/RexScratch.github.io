@@ -172,7 +172,10 @@ function inject(sb3) {
 
 function download(data) {
     var link = document.createElement("a");
+    link.style.display = "none";
     link.download = fileName;
     link.href = "data:application/zip;base64," + data;
+    document.body.appendChild(link);
     link.click();
+    alert("The project has been downloaded");
 }
