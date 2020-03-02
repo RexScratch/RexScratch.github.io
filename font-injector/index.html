@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stamp Font Engine Injector</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:r,b,semibold" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+        <script type="text/javascript" src="opentype.min.js"></script>
+        <script type="text/javascript" src="jszip.min.js"></script>
+        <script type="text/javascript" src="crypto-js.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+
+        <h1>Stamp Font Engine Font Injector</h1>
+        <p class="warning">Warning: Does not work on Internet Explorer</p>
+
+        <h6>Font File</h6>
+        <input type="file" accept=".ttf,.otf" onchange="openFont(event)">
+        <h6>Name of Font to be used in Project</h6>
+        <input type="text" id="fontName">
+        <h6>Character Set to Inject</h6>
+        <input type="text" id="charset" value=" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$¢€£¥%^&amp;*()-–—=≠≈[]\;&apos;‘’,./_+{}|:&quot;“”&lt;≤≥&gt;?`~×÷±°′″">
+        <p style="font-weight:600;">Note: All characters of a pre-existing font will be removed before adding the characters above</p>
+        <h6>SB3 Project File</h6>
+        <input type="file" id="sb3File" accept=".sb3">
+        <h6>Name of Stamp Font Engine Sprite in Project</h6>
+        <input type="text" value="Stamp Font" id="spriteName">
+
+        <br><br>
+        <button type="submit" onclick="openSb3()">Inject and Download</button>
+
+        <p>The resulting SB3 file should automatically download after submitting (this may take a few seconds). If not, something has gone wrong.</p>
+        <p>If the resulting file size is too large, try saving the project in Scratch Desktop.</p>
+
+        <h2>Libraries Used</h2>
+        <p>For anyone curious:</p>
+        <ul>
+            <li>opentype.js <a href="https://github.com/opentypejs/opentype.js">(Link)</a></li>
+            <li>JSZip <a href="https://github.com/Stuk/jszip">(Link)</a></li>
+            <li>crypto-js <a href="https://github.com/brix/crypto-js">(Link)</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

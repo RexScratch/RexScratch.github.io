@@ -1,0 +1,85 @@
+html, body, input, button {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.1rem;
+}
+
+#main {
+    margin: auto;
+    width: 60%;
+}
+
+a {
+    font-weight: 600;
+}
+
+a:link {
+    color: rgb(0,127,255);
+}
+
+a:hover {
+    color: rgb(0,95,191);
+}
+
+a:visited, a:active {
+    color: rgb(0,63,159);
+}
+
+#charset {
+    width: 100%;
+    font-family: Inconsolata, Consolas, monospace;
+    font-size: 1rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.warning {
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"], input[type="file"] {
+    font-size: 1.25rem;
+    padding-right: 0.1rem;
+}
+
+input[type="text"] {
+    padding-left: 0.1rem;
+}
+
+input[type="file"] {
+    padding-left: 0.04rem;
+}
+
+input[type="file"] {
+    width: 50%;
+}
+
+#fontName {
+    width: 35%;
+}
+
+button {
+    font-size: 1.4rem;
+}
+
+h1 {
+    margin-bottom: 0.75rem;
+}
+
+h2 {
+    margin-top: 0;
+    padding-left: 0.15rem;
+}
+
+h6 {
+    font-weight: normal;
+    font-size: 1.25rem;
+    margin: 0.25rem;
+}
+
+p {
+    padding-left: 0.2rem;
+}
