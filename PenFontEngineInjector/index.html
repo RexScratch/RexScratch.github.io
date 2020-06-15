@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pen Font Engine++ Injector</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:r,b,semibold" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+
+        <h1>Pen Font Engine++ <span style="font-weight:400">Font Injector</span></h1>
+        <p class="warning">Warning: Does not work on IE or Edge (Legacy)</p>
+
+        <div class="section">
+
+            <h2>1. Font Settings</h2>
+
+            <div class="option">
+                <h6>Font File</h6>
+                <input type="file" accept=".ttf,.otf" onchange="openFont(event)">
+            </div>
+            
+            <div class="option">
+                <h6>Name of Font to be used in Project</h6>
+                <input type="text" id="fontName">
+            </div>
+            
+            <div class="option">
+                <h6>Character Set to Inject</h6>
+                <input type="text" id="charset" value=" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$¢€£¥%^&amp;*()-–—=≠≈[]\;&apos;‘’,./_+{}|:&quot;“”&lt;≤≥&gt;?`~×÷±°′″">
+                <p>If the font already exists, its character data will be wiped before injecting the above character set</p>
+            </div>
+
+            <div class="option" style="padding-bottom:0">
+                <h6>Other</h6>
+                <input type="checkbox" id="useKerning" name="kerning" checked>
+                <label for="useKerning">Use kerning</label>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="section">
+
+            <h2>2. Project Settings</h2>
+
+            <div class="option">    
+                <h6>SB3 Project File with Pen Font Engine++ Sprite</h6>
+                <input type="file" id="sb3File" accept=".sb3">
+                <p>The project must contain a Pen Font Engine++ sprite. Using a new project won&apos;t work.</p>
+            </div>
+
+            <div class="option">
+                <h6>Name of Pen Font Engine++ Sprite in Project</h6>
+                <input type="text" value="FontEngine" id="spriteName">
+            </div>
+
+            <div class="option" style="padding-bottom:0">
+                <h6>Other</h6>
+                <input type="checkbox" id="clearData" name="clearData">
+                <label for="clearData">Clear font data</label><br>
+                <input type="checkbox" id="clearMonitors" name="clearMonitors">
+                <label for="clearMonitors">Clear list monitors (reduces project size)</label>
+                <p>Enabling any of these options will disable font injection.</p>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="section">
+
+            <h2>3. Download</h2>
+            <br>
+            <button type="submit" class="big" onclick="openSb3()">Inject and Download</button><span id="progress"></span>
+
+            <p>The resulting SB3 file should automatically download after clicking the button above.</p>
+            <p>The original file will not be replaced or deleted. A new file will be created instead.</p>
+            <p>The process should take less than 10 seconds to complete before the file starts downloading.</p>
+            <p>If the resulting file size is too large to upload, try saving the project in Scratch Desktop.</p>
+
+        </div>
+
+        <br>
+
+        <div class="section" style="padding-bottom:0">
+
+            <h2>Libraries Used</h2>
+
+            <p>For anyone curious:</p>
+            <ul>
+                <li>opentype.js <a href="https://github.com/opentypejs/opentype.js">(Link)</a></li>
+                <li>JSZip <a href="https://github.com/Stuk/jszip">(Link)</a></li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript" src="opentype.min.js"></script>
+    <script type="text/javascript" src="jszip.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    
+</body>
+</html>
