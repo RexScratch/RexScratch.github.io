@@ -1,0 +1,135 @@
+html, body, input, button {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.1rem;
+
+    cursor: default;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input {
+    cursor: auto;
+}
+
+input[type="file"], input[type="checkbox"], button {
+    cursor: pointer;
+}
+
+#main {
+    margin: auto;
+    width: 60%;
+}
+
+a {
+    font-weight: 600;
+}
+
+a:link {
+    color: rgb(0,127,255);
+}
+
+a:hover {
+    color: rgb(0,95,191);
+}
+
+a:visited, a:active {
+    color: rgb(0,63,159);
+}
+
+#fontData {
+    width: 90%;
+    font-family: Inconsolata, Consolas, monospace;
+    font-size: 1rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.warning {
+    color: rgb(207,63,63);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"], input[type="file"] {
+    font-size: 1.25rem;
+    padding-right: 0.1rem;
+}
+
+input[type="text"] {
+    padding-left: 0.2rem;
+}
+
+input[type="file"] {
+    padding-left: 0.04rem;
+}
+
+input[type="file"] {
+    width: 50%;
+}
+
+#fontName, #spriteName {
+    width: 35%;
+}
+
+button {
+    font-size: 1.4rem;
+}
+
+button.big {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+
+#progress {
+    font-size: 1.6rem;
+    margin-left: 0.4rem;
+}
+
+h1 {
+    margin-bottom: 0.75rem;
+}
+
+h2 {
+    margin-top: 0;
+    padding-left: 0.15rem;
+    margin-bottom: 0;
+}
+
+h6 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    margin-left: 0;
+}
+
+p {
+    padding-left: 0.1rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
+}
+
+ul {
+    margin-bottom: 0.6rem;
+}
+
+div.option {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+
+div.section {
+    padding: 0.5rem;
+    padding-top: 0.3rem;
+    border-width: 1px;
+    border-radius: 0.5rem;
+    border-color: #aaa;
+    border-style: solid;
+}
