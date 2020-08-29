@@ -790,11 +790,12 @@ class FontEngine {
 
         let index = sprite.l.fontName.map((value) => value.toLowerCase()).indexOf(fontName.toLowerCase());
         
+        let names = font.names;
+
         if (!names.hasOwnProperty(copyright)) {
             names.copyright = {'en': 'No copyright provided'};
         }
-        
-        let names = font.names;
+
         let language = null;
         if (names.copyright.hasOwnProperty('en')) {
             language = 'en';
