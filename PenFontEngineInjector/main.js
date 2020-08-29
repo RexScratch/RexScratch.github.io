@@ -792,7 +792,7 @@ class FontEngine {
         
         let names = font.names;
 
-        if (!names.hasOwnProperty(copyright)) {
+        if (!names.hasOwnProperty('copyright')) {
             names.copyright = {'en': 'No copyright provided'};
         }
 
@@ -808,7 +808,7 @@ class FontEngine {
             }
         }
 
-        if (!names.hasOwnProperty(license)) {
+        if (!names.hasOwnProperty('license')) {
             names.license = {};
             names.license[language] = 'No license provided';
         }
