@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript ILP Test</title>
+    <style>
+        html, body, button {
+            font-size: 24px;
+            font-family: Inconsolata, Consolas, 'Courier New', Courier, monospace;
+        }
+        div {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div><button onclick="runP1U8()">Parallelism = 1, Unrolling = 8</button>&nbsp;<span id="p1u8">---</span>&nbsp;<span>ms</span></div>
+    <div><button onclick="runP2U4()">Parallelism = 2, Unrolling = 4</button>&nbsp;<span id="p2u4">---</span>&nbsp;<span>ms</span></div>
+    <div><button onclick="runP4U2()">Parallelism = 4, Unrolling = 2</button>&nbsp;<span id="p4u2">---</span>&nbsp;<span>ms</span></div>
+    <div><button onclick="runP8U1()">Parallelism = 8, Unrolling = 1</button>&nbsp;<span id="p8u1">---</span>&nbsp;<span>ms</span></div>
+    <br>
+    <br>
+    <div><button onclick="runP1U1()">Parallelism = 1, Unrolling = 1</button>&nbsp;<span id="p1u1">---</span>&nbsp;<span>ms</span></div>
+    <div><button onclick="runP2U1()">Parallelism = 2, Unrolling = 1</button>&nbsp;<span id="p2u1">---</span>&nbsp;<span>ms</span></div>
+    <div><button onclick="runP4U1()">Parallelism = 4, Unrolling = 1</button>&nbsp;<span id="p4u1">---</span>&nbsp;<span>ms</span></div>
+
+    <script>
+
+        /*
+
+        Sample Times on Ryzen 5 5600X
+
+        Edge (Chromium) 87.0.664.75
+
+        P1U8 5385 ms
+        P2U4 4153 ms
+        P4U2 2943 ms
+        P8U1 2373 ms
+
+        P1U1 5363 ms
+        P2U1 4152 ms
+        P4U1 2895 ms
+
+        Firefox 84.0.2
+
+        P1U8 4644 ms
+        P2U4 2942 ms
+        P4U2 2834 ms
+        P8U1 3016 ms
+
+        P1U1 5367 ms
+        P2U1 3061 ms
+        P4U1 2857 ms
+
+        */
+
+        TRIALS = 5e7;
+        TRIALS2 = 2 * TRIALS;
+        TRIALS4 = 4 * TRIALS;
+        TRIALS8 = 8 * TRIALS;
+
+        // 65539
+        // 2147483648
+        // (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648
+
+        function runP1U8() {
+            let i1 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            startTime = Date.now();
+            for (let i = 0; i < TRIALS; i++) {
+                i1 = (65539 * i1) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+            }
+            endTime = Date.now();
+            document.getElementById('p1u8').innerText = `${endTime - startTime}`;
+        }
+
+        function runP2U4() {
+            let i1 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i2 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            startTime = Date.now();
+            for (let i = 0; i < TRIALS; i++) {
+                i1 = (65539 * i1) % 2147483648;
+                i2 = (65539 * i2) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i2 = (65539 * i2) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i2 = (65539 * i2) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i2 = (65539 * i2) % 2147483648;
+            }
+            endTime = Date.now();
+            document.getElementById('p2u4').innerText = `${endTime - startTime}`;
+        }
+
+        function runP4U2() {
+            let i1 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i2 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i3 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i4 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            startTime = Date.now();
+            for (let i = 0; i < TRIALS; i++) {
+                i1 = (65539 * i1) % 2147483648;
+                i2 = (65539 * i2) % 2147483648;
+                i3 = (65539 * i3) % 2147483648;
+                i4 = (65539 * i4) % 2147483648;
+                i1 = (65539 * i1) % 2147483648;
+                i2 = (65539 * i2) % 2147483648;
+                i3 = (65539 * i3) % 2147483648;
+                i4 = (65539 * i4) % 2147483648;
+            }
+            endTime = Date.now();
+            document.getElementById('p4u2').innerText = `${endTime - startTime}`;
+        }
+
+        function runP8U1() {
+            let i1 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i2 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i3 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i4 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i5 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i6 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i7 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i8 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            startTime = Date.now();
+            for (let i = 0; i < TRIALS; i++) {
+                i1 = (65539 * i1) % 2147483648;
+                i2 = (65539 * i2) % 2147483648;
+                i3 = (65539 * i3) % 2147483648;
+                i4 = (65539 * i4) % 2147483648;
+                i5 = (65539 * i5) % 2147483648;
+                i6 = (65539 * i6) % 2147483648;
+                i7 = (65539 * i7) % 2147483648;
+                i8 = (65539 * i8) % 2147483648;
+            }
+            endTime = Date.now();
+            document.getElementById('p8u1').innerText = `${endTime - startTime}`;
+        }
+
+        /*******************************************************************************/
+
+        function runP1U1() {
+            let i1 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            startTime = Date.now();
+            for (let i = 0; i < TRIALS8; i++) {
+                i1 = (65539 * i1) % 2147483648;
+            }
+            endTime = Date.now();
+            document.getElementById('p1u1').innerText = `${endTime - startTime}`;
+        }
+
+        function runP2U1() {
+            let i1 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i2 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            startTime = Date.now();
+            for (let i = 0; i < TRIALS4; i++) {
+                i1 = (65539 * i1) % 2147483648;
+                i2 = (65539 * i2) % 2147483648;
+            }
+            endTime = Date.now();
+            document.getElementById('p2u1').innerText = `${endTime - startTime}`;
+        }
+
+        function runP4U1() {
+            let i1 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i2 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i3 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            let i4 = (2 * Math.floor(1073741824 * Math.random()) + 1) % 2147483648;
+            startTime = Date.now();
+            for (let i = 0; i < TRIALS2; i++) {
+                i1 = (65539 * i1) % 2147483648;
+                i2 = (65539 * i2) % 2147483648;
+                i3 = (65539 * i3) % 2147483648;
+                i4 = (65539 * i4) % 2147483648;
+            }
+            endTime = Date.now();
+            document.getElementById('p4u1').innerText = `${endTime - startTime}`;
+        }
+
+    </script>
+    
+</body>
+</html>
