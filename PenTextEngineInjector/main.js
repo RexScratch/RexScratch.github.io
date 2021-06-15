@@ -462,11 +462,11 @@ function parseFont(event) {
         charset += fontData.charAt(i + 1);
 
         let left = i + 2;
-        let right = search(fontData, ',', left + 1);
+        let right = fontData.indexOf(',', left + 1);
 
         let idx = fontData.indexOf(']', left + 1);
 
-        if ((idx !== - 1) && (idx < right)) {
+        if (((idx !== - 1) && (idx < right)) || (right === -1)) {
             char.push(round(+fontData.slice(left + 1, idx) / 100));
             i = idx + 1;
             continue;
