@@ -129,9 +129,9 @@ function inject(sb3) {
             return;
         }
 
-        const fName = getList(sprite, "zzsfe_fName");
+        const fName = getList(sprite, "SFE | Font Name");
         if (fName === "Error") {
-            alert("Error: Sprite does not have \"zzsfe_fName\" list");
+            alert("Error: Sprite does not have \"SFE | Font Name\" list");
             return;
         }
 
@@ -141,9 +141,9 @@ function inject(sb3) {
             return;
         }
 
-        const fLicense = getList(sprite, "zzsfe_fLicense");
+        const fLicense = getList(sprite, "SFE | Font License");
         if (fLicense === "Error") {
-            alert("Error: Sprite does not have \"zzsfe_fLicense\" list");
+            alert("Error: Sprite does not have \"SFE | Font License\" list");
             return;
         }
 
@@ -178,9 +178,9 @@ function inject(sb3) {
 
                 setList(sprite, "zzsfe_cWidth", [0, 0]);
                 setList(sprite, "zzsfe_cKern", ["", ""]);
-                setList(sprite, "zzsfe_fName", []);
+                setList(sprite, "SFE | Font Name", []);
                 setList(sprite, "zzsfe_fStart", []);
-                setList(sprite, "zzsfe_fLicense", []);
+                setList(sprite, "SFE | Font License", []);
                 sprite.costumes = sprite.costumes.slice(0, 2);
 
                 sb3.file("project.json", JSON.stringify(project));

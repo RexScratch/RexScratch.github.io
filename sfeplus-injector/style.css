@@ -4,7 +4,7 @@ html, body, input, button, textarea {
 }
 
 * {
-    letter-spacing: -0.25px;
+    letter-spacing: -0.0175em;
     line-height: 135%;
 }
 
