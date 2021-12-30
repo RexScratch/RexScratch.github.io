@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stamp Font Engine Lite Injector</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#007fff">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&family=Noto+Sans+Mono&display=block" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <script type="text/javascript" src="opentype.min.js"></script>
+        <script type="text/javascript" src="jszip.min.js"></script>
+        <script type="text/javascript" src="crypto-js.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+
+        <h1>Stamp Font Engine Lite <span style="font-weight:400">Font Injector</span></h1>
+
+        <div class="container">
+            <h2>1. Font Settings</h2>
+            <h6>Font File</h6>
+            <button onclick="document.getElementById('fontFile').click()">Choose file</button>
+            <span id="fontFileName">No file chosen</span>
+            <input type="file" id="fontFile" accept=".ttf,.otf" onchange="openFont(event)" style="display:none">
+            <h6>Name of Font to be used in Project</h6>
+            <input type="text" id="fontName">
+            <h6>Character Set to Inject</h6><nbsp><nbsp>
+            <textarea id="charset"></textarea>
+            <br>
+            <span class="p_style">Presets</span>
+            <button onclick="setCharsetPreset('basic')">Basic</button>
+            <button onclick="setCharsetPreset('default')">Default</button>
+            <button onclick="setCharsetPreset('expanded')">Expanded</button>
+            <button onclick="setCharsetPreset('expanded+')">Expanded+</button>
+            <button onclick="setCharsetPreset('expanded++')">Expanded++</button>
+            <br>
+            <span id="charCountDisplay" class="p_style"></span>
+            <br><br>
+            <p class="semibold">If the font name already exists in the sprite, all previously-injected characters under the font name will be removed before injecting the new character set using the new font file.</p>
+            <p style="color:red" class="semibold">It is best not to inject excessive numbers of unused characters. Chromium-based browsers, including Chrome and Edge, have a bug that crashes the Scratch editor and project player when too many images are loaded.</p>
+        </div>
+        
+        <div class="container">
+            <h2>2. Project Settings</h2>
+            <h6>SB3 Project File with Stamp Font Engine Lite Sprite</h6>
+            <button onclick="document.getElementById('sb3File').click()">Choose file</button>
+            <span id="sb3FileName">No file chosen</span>
+            <input type="file" id="sb3File" accept=".sb3" onchange="updateSb3FileName(event)" style="display:none">
+            <p class="semibold">The project must contain a Stamp Font Engine Lite sprite. Using a blank project won&rsquo;t work.</p>
+            <br>
+            <h6>Name of Stamp Font Engine Sprite Lite in Project</h6>
+            <input type="text" value="SFElite" id="spriteName">
+            <br>
+            <input type="checkbox" id="resetData" name="reset">
+            <label for="resetData">Reset font data instead of injecting font</label>
+        </div>
+
+        <div class="container">
+            <h2>3. Download</h2>
+            <button type="submit" onclick="openSb3()">Inject and Download</button>
+            <br><br>
+            <p>The resulting SB3 file should automatically download after clicking the button above (this may take several seconds). If not, something has gone wrong.</p>
+            <p>If the resulting file size is too large, try saving the project in Scratch Desktop.</p>
+        </div>
+
+        <div class="container">
+            <h2>Libraries Used</h2>
+            <p>For anyone curious:</p>
+            <ul>
+                <li>opentype.js <a href="https://github.com/opentypejs/opentype.js">(Link)</a></li>
+                <li>JSZip <a href="https://github.com/Stuk/jszip">(Link)</a></li>
+                <li>crypto-js <a href="https://github.com/brix/crypto-js">(Link)</a></li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Thanks to GitHub Pages for hosting this page &middot; Source on <a href="https://github.com/RexScratch/RexScratch.github.io/tree/master/sfeplus-injector">GitHub</a></p>
+        </div>
+
+    </div>
+
+    <script>
+        setCharsetPreset('default');
+    </script>
+
+</body>
+</html>
